@@ -1,5 +1,6 @@
 service: booking-api
 frameworkVersion: '3'
+useDotenv: true
 
 provider:
   name: aws
@@ -8,6 +9,13 @@ provider:
   region: eu-north-1
   iam:
     role: ${env:AWS_IAM_ROLE}
+
+
+plugins:
+  - serverless-webpack
+
+package:
+  individually: true
 
 functions:
   function1:
