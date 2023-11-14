@@ -14,9 +14,39 @@ provider:
 plugins:
   - serverless-webpack
 
+
 package:
   individually: true
 
+
 functions:
-  function1:
-    handler: index.handler
+  getRooms:
+    handler: functions/getRooms/index.handler
+    events: 
+      - httpApi:
+          path: '/rooms'
+          method: GET
+          
+  postRooms:
+    handler: functions/postRooms/index.handler
+    events: 
+      - httpApi:
+          path: '/rooms'
+          method: POST
+
+
+
+
+resources:
+  Resources:
+    roomsDb:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: rooms-db
+        AttributeDefinitions: 
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
