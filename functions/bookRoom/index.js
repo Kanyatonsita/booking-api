@@ -19,6 +19,27 @@ const bookRoomHandler = async (event) => {
       type: requestBody.type,
     };
 
+    const checkInDate = new Date(requestBody.checkIn);
+    const checkOutDate = new Date(requestBody.checkOut)
+    const numberOfNights = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+
+    let totalPrice;
+    switch (requestBody.type) {
+      case 'Suite':
+        totalPrice = numberOfNights * 1500;
+        break;
+      case 'Double Room':
+        totalPrice = numberOfNights * 1000;
+        break;
+      case 'Single Room':
+        totalPrice = numberOfNights * 500;
+        break;
+      default:
+        totalPrice = 0;
+    }
+
+    bookingItem.totalPrice = totalPrice;
+
     await db.put({
       TableName: TABLE_NAME,
       Item: bookingItem,
