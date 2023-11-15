@@ -40,6 +40,13 @@ functions:
       - httpApi:
           path: '/bookings'
           method: POST
+  
+  deleteBookRoom:
+    handler: functions/deleteBookRoom/index.handler
+    events:
+      - httpApi:
+          path: '/rooms/{roomId}'
+          method: DELETE
 
 
 
