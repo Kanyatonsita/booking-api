@@ -48,6 +48,13 @@ functions:
           path: '/rooms/{roomId}'
           method: DELETE
 
+  updateBookRoom:
+    handler: functions/updateBookRoom/index.handler
+    events:
+      - httpApi:
+          path: '/rooms/{roomId}'
+          method: PATCH
+
 
 
 resources:
