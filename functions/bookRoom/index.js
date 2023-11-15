@@ -8,7 +8,8 @@ const TABLE_NAME = 'rooms-db';
 const bookRoomHandler = async (event) => {
   try {
     const requestBody = JSON.parse(event.body);
-
+    const { roomId } = event.pathParameters;
+    
     const bookingItem = {
     id: uuidv4(),
       capacity: requestBody.capacity,
@@ -40,10 +41,16 @@ const bookRoomHandler = async (event) => {
 
     bookingItem.totalPrice = totalPrice;
 
-    await db.put({
+    await db.update({
       TableName: TABLE_NAME,
-      Item: bookingItem,
-    }).promise();
+      Key : { id: roomId },
+      UpdateExpression: 'SET #booked = list_append(if_not_exists(#booked, :empty_list), :bookingItem)',
+      ExpressionAttributeNames: { '#booked': 'booked' },
+      ExpressionAttributeValues: {
+          ':bookingItem': [bookingItem],
+          ':empty_list': [],
+      },
+  }).promise();
 
     // Respond with success message
     return sendResponse(200, { message: 'Booking successful', booking: bookingItem });

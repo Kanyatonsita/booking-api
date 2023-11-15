@@ -38,7 +38,7 @@ functions:
     handler: functions/bookRoom/index.handler
     events:
       - httpApi:
-          path: '/bookings'
+          path: '/bookings/{roomId}'
           method: POST
   
   deleteBookRoom:
