@@ -52,8 +52,9 @@ functions:
     handler: functions/updateBookRoom/index.handler
     events:
       - httpApi:
-          path: '/rooms/{roomId}'
+          path: '/rooms/{userId}'
           method: PATCH
+
 
 
 
