@@ -41,12 +41,12 @@ functions:
           path: '/bookings/{roomId}'
           method: POST
   
-  deleteBookRoom:
-    handler: functions/deleteBookRoom/index.handler
+  checkoutRoom:
+    handler: functions/checkoutRoom/index.handler
     events:
       - httpApi:
-          path: '/rooms/{roomId}'
-          method: DELETE
+          path: '/checkoutGuestWithID/{bookingID}'
+          method: PATCH
 
   updateBookRoom:
     handler: functions/updateBookRoom/index.handler
