@@ -9,8 +9,7 @@ exports.handler = async (event, context) => {
       }).promise();
     
     try {
-    //Get all booked room
-    // const bookRooms = result.Items.filter(item => item.booked && item.booked.length > 0)
+        
     const bookRooms = result.Items.filter(item => Array.isArray(item.booked) && item.booked.length > 0);
     
     if (bookRooms.length > 0) {
