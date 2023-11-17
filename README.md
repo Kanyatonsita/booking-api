@@ -13,7 +13,7 @@ authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 
 ## AWS-Endpoints
 
-POST infomantion om:
+### POST infomantion om:
 - Det finns tre typer av rum:
 - Enkelrum som tillåter enbart en 1 gäst
 - Dubbelrum som tillåter 2 gäster
@@ -34,13 +34,13 @@ Example:
 }
 ```
 
-GET alla 20rum
+### GET alla 20rum
 
 ```
 GET - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms
 ```
 
-POST gör en booking till en särskild rum med hjälp av att använda roomID 
+### POST gör en booking till en särskild rum med hjälp av att använda roomID 
 - Välje ett rum (roomID) som stämmer med antal person och typ av rum annars går inte att boka rum
 
 ```
@@ -57,7 +57,7 @@ Example:
  } 
 ```
 
-PATCH  ändra bokning med hjälp av att använda Namn på den som bokade rummet
+### PATCH  ändra bokning med hjälp av att använda Namn på den som bokade rummet
 - Kan ändra CheckIn & CheckOut och då kommer det uppdatera och räknar nya total summa att betala.
 
 ```
@@ -76,14 +76,14 @@ https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms/Maria
  } 
 ```
 
-PATCH   avboka rum ifall kund inte längre kan komma med hjälp av att använda bookingID
+### PATCH   avboka rum ifall kund inte längre kan komma med hjälp av att använda bookingID
 - När kunden har bokad ett rum få de ett bookingID
 
 ```
 PATCH - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/checkoutGuestWithID/{bookingID}
 ```
 
-GET alla rum som är redan bokad.
+### GET alla rum som är redan bokad.
 
 ```
 GET - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/allBookRooms
