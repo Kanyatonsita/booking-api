@@ -41,7 +41,7 @@ GET - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms
 ```
 
 POST gör en booking till en särskild rum med hjälp av att använda roomID 
-- Välje ett rum (roomID) som stämer med antal person och typ av rum annars går inte att boka rum
+- Välje ett rum (roomID) som stämmer med antal person och typ av rum annars går inte att boka rum
 
 ```
 POST - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/bookings/{roomId}
