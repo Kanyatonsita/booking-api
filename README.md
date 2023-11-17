@@ -22,7 +22,7 @@ authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 - Dubbelrum kostar 1000 kr / natt
 - Svit kostar 1500 kr / natt
 
-#### roomID få man sen efter man har gjort POST 
+#### roomId få man sen efter man har gjort POST 
 ```
 POST - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms
 
