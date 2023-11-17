@@ -54,6 +54,13 @@ functions:
       - httpApi:
           path: '/rooms/{userId}'
           method: PATCH
+  
+  getAllBookRoom:
+    handler: functions/getAllBookRoom/index.handler
+    events:
+      - httpApi:
+          path: /allBookRooms
+          method: GET
 
 
 
