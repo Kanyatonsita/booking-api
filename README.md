@@ -11,7 +11,7 @@ authorName: 'Serverless, inc.'
 authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
-## AWS-Endpoints
+# AWS-Endpoints
 
 ### POST infomantion om:
 - Det finns tre typer av rum:
