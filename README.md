@@ -40,19 +40,44 @@ GET alla 20rum
 GET - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms
 ```
 
-POST gör en booking till en särskild rum med hjälp av att använda roomID
+POST gör en booking till en särskild rum med hjälp av att använda roomID 
+- Välje ett rum (roomID) som stämer med antal person och typ av rum annars går inte att boka rum
 
 ```
 POST - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/bookings/{roomId}
+
+Example:
+{
+  "capacity": 2,
+  "checkIn": "14 Nov 2023",
+  "checkOut": "16 Nov 2023",
+  "name": "Maria",
+  "E-post": "Maria@gmail.com",
+  "type": "Double Room"
+ } 
 ```
 
 PATCH  ändra bokning med hjälp av att använda Namn på den som bokade rummet
+- Kan ändra CheckIn & CheckOut och då kommer det uppdatera och räknar nya total summa att betala.
 
 ```
 PATCH - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms/{userId}
+
+Example:
+https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms/Maria
+
+{
+  "capacity": 2,
+  "checkIn": "16 Nov 2023",
+  "checkOut": "20 Nov 2023",
+  "name": "Maria",
+  "E-post": "Maria@gmail.com",
+  "type": "Double Room"
+ } 
 ```
 
 PATCH   avboka rum ifall kund inte längre kan komma med hjälp av att använda bookingID
+- När kunden har bokad ett rum få de ett bookingID
 
 ```
 PATCH - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/checkoutGuestWithID/{bookingID}
