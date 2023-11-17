@@ -11,6 +11,60 @@ authorName: 'Serverless, inc.'
 authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
+## AWS-Endpoints
+
+POST infomantion om:
+- Det finns tre typer av rum:
+- Enkelrum som tillåter enbart en 1 gäst
+- Dubbelrum som tillåter 2 gäster
+- Svit som tillåter 3 gäster
+- Enkelrum kostar 500 kr / natt
+- Dubbelrum kostar 1000 kr / natt
+- Svit kostar 1500 kr / natt
+
+```
+POST - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms
+
+Example:
+{
+	"capacity": 2,
+	"number": 105,
+	"price_per_night": 1000,
+	"type": "Double Room"
+}
+```
+
+GET alla 20rum
+
+```
+GET - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms
+```
+
+POST gör en booking till en särskild rum med hjälp av att använda roomID
+
+```
+POST - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/bookings/{roomId}
+```
+
+PATCH  ändra bokning med hjälp av att använda Namn på den som bokade rummet
+
+```
+PATCH - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/rooms/{userId}
+```
+
+PATCH   avboka rum ifall kund inte längre kan komma med hjälp av att använda bookingID
+
+```
+PATCH - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/checkoutGuestWithID/{bookingID}
+```
+
+GET alla rum som är redan bokad.
+
+```
+GET - https://19k80uiybg.execute-api.eu-north-1.amazonaws.com/allBookRooms
+```
+
+
 
 # Serverless Framework AWS NodeJS Example
 
